@@ -25,7 +25,8 @@ jobs:
 
   job2:
     needs: job1
-    if: ${{!cancelled() && needs.job1.conclusion == 'failure' }}
+    #if: ${{!cancelled() && needs.job1.conclusion == 'failure' }}
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
       - name: Hello world

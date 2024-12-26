@@ -25,12 +25,12 @@ jobs:
 
   job2:
     needs: job1
-    if: ${{!cancelled() && needs.job1.status == 'failure' }}
-    #if: ${{ always() }}
+    #if: ${{!cancelled() && needs.job1.status == 'failure' }}
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
       - name: Hello world
         id: hello_world
-        run: echo "hello world 2"
+        run: echo "hello world 2" ${needs.job1.status}
 
 ...

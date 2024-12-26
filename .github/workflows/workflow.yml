@@ -17,11 +17,14 @@ jobs:
     steps:
       - name: Hello world
         id: hello_world
+        continue-on-error: true
         #run: echo "hello world"
         run: exit 1
 
     outputs:
       rc: ${{ steps.hello_world.conclusion }}
+      
+  job1:
 
   job2:
     needs: job1

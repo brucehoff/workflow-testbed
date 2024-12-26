@@ -33,6 +33,7 @@ jobs:
         id: hello_world
         run: |
           echo "hello world 2" 
+          echo ${GITHUB_ENV}
           cat ${GITHUB_ENV}
 
 ...

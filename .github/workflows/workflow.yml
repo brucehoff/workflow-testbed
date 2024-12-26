@@ -1,0 +1,32 @@
+---
+name: Test workflow
+
+on:
+  push:
+    branches:
+      - '*'
+    tags:
+      - 'v[0-9]+\.[0-9]+\.[0-9]+'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello world
+        id: hello_world
+        run: cat "hello world"
+
+    outputs:
+      rc: ${{ steps.hello_world.outputs.rc }}
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+      - name: Hello world
+        id: hello_world
+        run: cat "hello world 2"
+
+...

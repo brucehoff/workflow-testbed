@@ -31,6 +31,6 @@ jobs:
     steps:
       - name: Hello world
         id: hello_world
-        run: echo "hello world 2.  =job1 conclusion" ${{ needs.job1.status }}
+        run: echo "hello world 2.  =job1 conclusion" $GITHUB_ENV.needs.job1.status
 
 ...

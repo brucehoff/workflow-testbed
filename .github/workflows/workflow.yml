@@ -25,6 +25,7 @@ jobs:
   job2:
     needs: job1
     runs-on: ubuntu-latest
+    steps:
       - name: Hello world
         id: hello_world
         run: cat "hello world 2"

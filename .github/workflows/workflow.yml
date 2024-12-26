@@ -17,10 +17,10 @@ jobs:
     steps:
       - name: Hello world
         id: hello_world
-        run: cat "hello world"
+        run: echo "hello world"
 
     outputs:
-      rc: ${{ steps.hello_world.outputs.rc }}
+      rc: ${{ steps.hello_world.conclusion }}
 
   job2:
     needs: job1
@@ -28,6 +28,6 @@ jobs:
     steps:
       - name: Hello world
         id: hello_world
-        run: cat "hello world 2"
+        run: echo "hello world 2"
 
 ...

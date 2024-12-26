@@ -24,6 +24,7 @@ jobs:
 
   job2:
     needs: job1
+    if: ${{!cancelled() && needs.job1.outputs.rc == 'failure' }}
     runs-on: ubuntu-latest
     steps:
       - name: Hello world

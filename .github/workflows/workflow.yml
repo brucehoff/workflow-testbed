@@ -13,17 +13,7 @@ on:
 
 jobs:
   job1:
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - name: Hello world
-        id: hello_world
-        # continue-on-error: true overrides the exit code, so this doesn't work
-        #run: echo "hello world"
-        run: exit 1
-
-    outputs:
-      rc: ${{ steps.hello_world.conclusion }}
+    uses: "./.github/workflows/subworkflow.yml"
 
   job2:
     needs: job1

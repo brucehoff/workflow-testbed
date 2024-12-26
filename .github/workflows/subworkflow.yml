@@ -1,0 +1,23 @@
+---
+
+
+name: Sub workflow
+
+on:
+  workflow_call:
+    outputs:
+      my_conclusion:
+        value: ${{ jobs.job1.outputs.my_conclusion }}
+
+jobs:
+  job1:
+    name: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: epic fail
+        id: fail
+        run: exit 1
+
+    outputs:
+      my_conclusion: steps.fail.conclusion
+...

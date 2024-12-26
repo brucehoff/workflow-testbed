@@ -23,8 +23,6 @@ jobs:
 
     outputs:
       rc: ${{ steps.hello_world.conclusion }}
-      
-  job1:
 
   job2:
     needs: job1

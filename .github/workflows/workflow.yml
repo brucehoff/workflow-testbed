@@ -20,16 +20,16 @@ jobs:
         #run: echo "hello world"
         run: exit 1
 
-    outputs:
-      rc: ${{ steps.hello_world.conclusion }}
+    #outputs:
+    #  rc: ${{ steps.hello_world.conclusion }}
 
   job2:
     needs: job1
-    if: ${{!cancelled() && needs.job1.outputs.rc == 'failure' }}
+    if: ${{!cancelled() && needs.job1.conclusion == 'failure' }}
     runs-on: ubuntu-latest
     steps:
       - name: Hello world
         id: hello_world
-        run: echo "hello world 2.  Conclusion\:" ${{ needs.job1.outputs.rc }}
+        run: echo "hello world 2.  =job1 conclusion" ${{ needs.job1.conclusion }}
 
 ...

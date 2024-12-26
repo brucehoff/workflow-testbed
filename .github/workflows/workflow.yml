@@ -17,7 +17,8 @@ jobs:
     steps:
       - name: Hello world
         id: hello_world
-        run: echo "hello world"
+        #run: echo "hello world"
+        run: exit 1
 
     outputs:
       rc: ${{ steps.hello_world.conclusion }}
@@ -29,6 +30,6 @@ jobs:
     steps:
       - name: Hello world
         id: hello_world
-        run: echo "hello world 2"
+        run: echo "hello world 2.  Conclusion: " ${{ needs.job1.outputs.rc }}
 
 ...
